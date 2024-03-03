@@ -61,4 +61,12 @@ class MainTest {
   }
 
   // TODO: Create your test(s) below. /////////////////////////////////////////
+  @Test
+  void getId_apostropheExists() {
+    assertDoesNotThrow(
+        () -> {
+          Connection db = Main.createConnection();
+          assertNotNull(Main.getId(db, "'"));
+        });
+  }
 }
